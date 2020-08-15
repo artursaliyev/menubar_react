@@ -1,0 +1,149 @@
+$menu-panel-bg: hsla(0, 0%, 96.1%, 0.8);
+$menu-panel-border: #ebebeb;
+$font: -apple-system, BlinkMacSystemFont, Roboto, Open Sans, "Helvetica Neue",
+  Helvetica, Arial, sans-serif;
+$menu-color: #222;
+$menu-border: rgba(0, 0, 0, 0.15);
+$menu-item-bg: #fff;
+$common-shadow1: rgba(0, 0, 0, 0.15);
+$common-shadow2: rgba(0, 0, 0, 0.1);
+$menu-panel-hover: rgba(0, 0, 0, 0.05);
+$common-float-bg: hsla(0, 0%, 100%, 0.95);
+$common-divider: rgba(0, 0, 0, 0.05);
+$menu-divider: $common-divider;
+$common-accent-inversed: #fff;
+$menu-button-bg-hover: #4071f6;
+
+.menu__root {
+  position: relative;
+  padding: 0 4px;
+  white-space: nowrap;
+  background: $menu-panel-bg;
+  box-shadow: 0 1px $menu-panel-border;
+  z-index: 1;
+}
+
+.menu__item,
+.menu__label {
+  position: relative;
+}
+
+.menu__item {
+  font: 13px/25px $font;
+  color: $menu-color;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 2px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.menu__item:hover .menu__label {
+  border-color: $menu-border;
+  background: $menu-item-bg;
+  box-shadow: 0 2px 2px $common-shadow1, 0 1px $common-shadow2;
+}
+
+.menu__item:hover .menu__label::after {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  border-bottom: 1px solid $menu-item-bg;
+  z-index: 1;
+  content: "";
+}
+
+.menu__label {
+  padding: 4px 8px 1px;
+  border: 1px solid transparent;
+  border-top: 0;
+  border-bottom: 0;
+  cursor: default;
+}
+.menu__label:hover {
+  background: $menu-panel-hover;
+}
+
+.menu__dropdown {
+  display: none;
+  background: linear-gradient($menu-item-bg, $common-float-bg 38px);
+  border: 1px solid $menu-border;
+  border-radius: 0 0 3px 3px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: 3px 0;
+  box-shadow: 0 2px 2px $common-shadow1, 0 1px $common-shadow2;
+}
+
+.menu__item:hover .menu__dropdown {
+  display: block;
+}
+
+.menu__group:first-child {
+  border: 0;
+}
+
+.menu__group {
+  display: flex;
+  flex-direction: column;
+  padding: 3px 0;
+  margin-bottom: -1px;
+  border-top: 1px solid $menu-divider;
+}
+
+.menuButton__menuButton:not(.menuButton___disabled):focus,
+.menuButton__menuButton:not(.menuButton___disabled):hover {
+  color: $common-accent-inversed;
+  background: $menu-button-bg-hover;
+}
+
+.menuButton__menuButton {
+  position: relative;
+  display: flex;
+  margin: 0 -1px;
+  padding: 0 10px 0 32px;
+  background: none;
+  border: 0;
+  font: 13px/25px -apple-system, BlinkMacSystemFont, Roboto, Open Sans,
+    Helvetica Neue, sans-serif;
+  color: $menu-color;
+  text-align: left;
+  -webkit-font-smoothing: subpixel-antialiased;
+  outline: none;
+  cursor: default;
+  white-space: nowrap;
+  border-radius: 0;
+}
+
+.menuButton__menuButton.menuButton___disabled {
+  opacity: 0.5;
+}
+
+.menuButton__text {
+  flex: 1 1 auto;
+  margin-right: 16px;
+}
+
+.menuButton__kbd {
+  flex: 0 0 auto;
+  color: inherit;
+  opacity: 0.5;
+  font: 13px/25px $font;
+}
+
+.menuButton__icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  margin: -8px 0 0;
+  width: 16px;
+  height: 16px;
+  vertical-align: top;
+  opacity: 0.7;
+  -webkit-transform: scale(0.75);
+  transform: scale(0.75);
+}
